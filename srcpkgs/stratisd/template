@@ -1,0 +1,40 @@
+# Template file for 'stratisd'
+pkgname=stratisd
+version=3.5.0
+revision=1
+# TODO: check other arches
+archs="x86_64"
+build_style=cargo
+hostmakedepends="pkg-config libclang clang"
+makedepends="eudev-libudev-devel cryptsetup-devel libcryptsetup dbus-devel asciidoc"
+depends="dbus util-linux-libs"
+short_desc="A tool to easily configure pools and filesystems with enhanced storage functionality that works within the existing Linux storage management stack."
+maintainer="Pascal Huber <pascal.huber@resolved.ch>"
+license="MPL-2.0"
+homepage="https://stratis-storage.github.io/"
+distfiles="https://github.com/stratis-storage/stratisd/archive/v${version}.tar.gz"
+checksum=d4bbb9002362834265f7a9886a60978cec651fb20c5ce471c54c9d51528c829e
+dkms_modules="stratis"
+
+do_build() {
+    # TODO: find out why arch does it like this
+    cargo build \
+          --release \
+          --bin=stratisd
+    cargo build \
+          --release \
+          --bin=stratis-min \
+          --bin=stratisd-min \
+          --bin=stratis-utils \
+          --no-default-features \
+          --features min,engine
+}
+
+post_build(){
+    a2x -f manpage docs/stratisd.txt
+}
+
+post_install() {
+    vlicense LICENSE
+    exit 1
+}

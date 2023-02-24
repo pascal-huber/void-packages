@@ -30,12 +30,12 @@ post_extract() {
 do_install() {
 	make usrsbin_execdir=/usr/bin DESTDIR=${DESTDIR} install
 	# Those files will be provided by util-linux
-	rm -rf "$DESTDIR/usr/bin"
-	rm -rf "$DESTDIR/usr/share/man/man1"
-	rm -rf "$DESTDIR/usr/share/man/man5"
-	rm -rf "$DESTDIR/usr/share/man/man8"
-	rm -rf "$DESTDIR/usr/share/bash-completion"
-	rm -rf "$DESTDIR/usr/share/doc/"
+	# rm -rf "$DESTDIR/usr/bin"
+	# rm -rf "$DESTDIR/usr/share/man/man1"
+	# rm -rf "$DESTDIR/usr/share/man/man5"
+	# rm -rf "$DESTDIR/usr/share/man/man8"
+	# rm -rf "$DESTDIR/usr/share/bash-completion"
+	# rm -rf "$DESTDIR/usr/share/doc/"
 	# Some libraries have i18n text
 	# rm -rf "$DESTDIR/usr/share/locale"
 }
@@ -145,4 +145,8 @@ libsmartcols_package() {
 	pkg_install() {
 		vmove usr/lib/libsmartcols.so.*
 	}
+}
+
+post_install(){
+    exit 1
 }

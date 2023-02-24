@@ -1,0 +1,40 @@
+# Template file for 'mailspring'
+pkgname=mailspring
+version=1.10.3
+revision=1
+
+archs="x86_64"
+# archs="i686 x86_64"
+#wrksrc=
+#create_wrksrc=yes
+# build_style=gnu-configure
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+
+hostmakedepends=""
+makedepends=""
+depends=""
+
+short_desc="Mailspring is a new version of Nylas Mail maintained by one of the original authors. It's faster, leaner, and shipping today! "
+maintainer="Pascal Huber <pascal.huber@resolved.ch>"
+license="custom: GPL3 and (C) 2016-2019 Foundry 376, LLC."
+homepage="https://getmailspring.com"
+distfiles="https://github.com/Foundry376/Mailspring/releases/download/${version}/mailspring-${version}-amd64.deb"
+checksum=f87d8a79a441029bde506e95cfe67c2d6a66369678970c9e5f52cad002b1fdbc
+nostrip=yes
+
+do_extract() {
+	mkdir -p ${DESTDIR}
+	ar x ${XBPS_SRCDISTDIR}/${pkgname}-${version}/${pkgname}-${version}-amd64.deb
+}
+
+do_install(){
+  ls -l ${DESTDIR}
+  ls -l
+  bsdtar xf data.tar.xz -C ${DESTDIR} --exclude='./control'
+  chmod go-w "${DESTDIR}"/usr "${pkgdir}"/usr/bin
+  chmod -R go-w "${DESTDIR}"/usr/share
+}

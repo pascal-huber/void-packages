@@ -1,0 +1,14 @@
+:100644 100644 08742ae c0d92b6 M	src/modules/sway/workspaces.cpp
+
+diff --git a/src/modules/sway/workspaces.cpp b/src/modules/sway/workspaces.cpp
+index 08742ae..c0d92b6 100644
+--- a/src/modules/sway/workspaces.cpp
++++ b/src/modules/sway/workspaces.cpp
+@@ -231,6 +231,7 @@ auto Workspaces::update() -> void {
+       box_.reorder_child(button, it - workspaces_.begin());
+     }
+     std::string output = (*it)["name"].asString();
++    button.get_style_context()->add_class("workspace-" + trimWorkspaceName(output));
+     if (config_["format"].isString()) {
+       auto format = config_["format"].asString();
+       output = fmt::format(fmt::runtime(format), fmt::arg("icon", getIcon(output, *it)),

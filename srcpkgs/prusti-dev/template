@@ -1,0 +1,48 @@
+# Template file for 'prusti-dev'
+pkgname=prusti-dev
+version=2022.01.31.2213
+# TODO: use version in distfiles etc.
+# _version=v-2022-01-31-2213
+revision=1
+nostrip=yes
+nopie=yes
+hostmakedepends=""
+makedepends="python3 curl unzip cmake openjdk11 file gcc git glibc-locales mono pkg-config sudo wget which openssl-devel"
+depends=""
+short_desc="viper frontend for rust"
+maintainer="Pascal Huber <pascal.huber@resolved.ch>"
+license="Mozilla Public License Version 2.0"
+homepage="https://github.com/viperproject/prusti-dev"
+wrksrc="${pkgname}-v-2022-01-31-2213"
+distfiles="https://github.com/viperproject/prusti-dev/archive/refs/tags/v-2022-01-31-2213.tar.gz"
+checksum=a1babd5ce993835ae365bff290e34a37433f43e129208e63e3f232ddf055a5ed
+
+do_build() {
+    CHANNEL=$(cat rust-toolchain | grep channel | cut -d'"' -f2)
+    curl https://sh.rustup.rs -sSf \
+        | sh -s -- -y --profile minimal --no-modify-path --default-toolchain "$CHANNEL"
+    source /host/cargo/env
+    ./x.py setup
+    export JAVA_HOME=/usr/lib/jvm/openjdk11
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${JAVA_HOME}/lib/server
+    ./x.py build --release
+}
+
+do_install() {
+   vbin ${wrksrc}/target/release/prusti-rustc
+   vbin ${wrksrc}/target/release/prusti-driver
+   vbin ${wrksrc}/target/release/prusti-server
+   vbin ${wrksrc}/target/release/prusti-server-driver
+   vbin ${wrksrc}/target/release/cargo-prusti
+
+   vmkdir opt/prusti/
+   vmkdir opt/prusti/deps/
+   vcopy ${wrksrc}/viper-toolchain opt/prusti/
+   vcopy ${wrksrc}/viper_tools/ opt/prusti/viper_tools
+   vcopy ${wrksrc}/target/release/libprusti_contracts.rlib opt/prusti/libprusti_contracts.rlib
+   vcopy ${wrksrc}/target/release/deps/libprusti_contracts_internal-* opt/prusti/deps/
+}
+
+post_install() {
+	vlicense LICENSE
+}

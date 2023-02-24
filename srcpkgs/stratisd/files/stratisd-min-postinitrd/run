@@ -1,0 +1,9 @@
+#!/bin/sh
+mkdir -p /run/cryptsetup
+exec 2>&1
+# stratisd-min does not rely on dbus
+stratisd-min --log-level debug
+
+# TODO: do I need this? does this belong in runit core-services
+#
+# TODO: this needs to be stopped I think "StopWhenUnneeded"

@@ -5,6 +5,9 @@ do_build() {
 	: ${make_cmd:=make}
 
 	if [ -z "$make_use_env" ]; then
+
+		echo ">> ${make_cmd} ${makejobs} ${make_build_args} ${make_build_target}"
+
 		${make_cmd} \
 			CC="$CC" CXX="$CXX" LD="$LD" AR="$AR" RANLIB="$RANLIB" \
 			CPP="$CPP" AS="$AS" OBJCOPY="$OBJCOPY" OBJDUMP="$OBJDUMP" \
@@ -12,6 +15,7 @@ do_build() {
 			PREFIX=/usr prefix=/usr \
 			${makejobs} ${make_build_args} ${make_build_target}
 	else
+		echo ">> ${make_cmd} ${makejobs} ${make_build_args} ${make_build_target}"
 		export PREFIX=/usr prefix=/usr
 		${make_cmd} ${makejobs} ${make_build_args} ${make_build_target}
 	fi

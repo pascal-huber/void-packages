@@ -1,33 +1,62 @@
 # Template file for 'inotify-tools'
 pkgname=inotify-tools
-version=3.20.11.0
+version=3.22.6.0
 revision=1
 build_style=gnu-configure
+# configure_args="asdf --prefix=/usr --sysconfdir=/etc --mandir=/usr/share/man --infodir=/usr/share/info"
 hostmakedepends="automake libtool"
 short_desc="Provides a simple interface to inotify"
 maintainer="Enno Boland <gottox@voidlinux.org>"
 license="GPL-2.0-or-later"
 homepage="https://github.com/inotify-tools/inotify-tools"
 distfiles="https://github.com/inotify-tools/inotify-tools/archive/${version}.tar.gz"
-checksum=58a3cde89e4a5111a87ac16b56b06a8f885460fca0aea51b69c856ce30a37a14
+checksum=c6b7e70f1df09e386217102a1fe041cfc15fa4f3d683d2970140b6814cf2ed12
 
 pre_configure() {
 	autoreconf -fi
 }
 
-libinotify-tools_package() {
-	short_desc+=" - library files"
-	pkg_install() {
-		vmove "usr/lib/*.so.*"
-	}
+# do_configure() {
+#     ./configure \
+# 		--prefix=/usr \
+# 		--sysconfdir=/etc \
+# 		--mandir=/usr/share/man \
+# 		--infodir=/usr/share/info
+# }
+
+# do_build() {
+# 	export lt_cv_sys_lib_dlsearch_path_spec="/usr/lib64 /usr/lib32 /usr/lib /lib /usr/local/lib"
+#     make
+# }
+
+# do_build() {
+# 	# ./configure \
+# 	# 	--prefix=/usr \
+# 	# 	--sysconfdir=/etc \
+# 	# 	--mandir=/usr/share/man \
+# 	# 	--infodir=/usr/share/info
+# 	#make
+#     echo "hello"
+# }
+
+do_install() {
+    make install
 }
 
-inotify-tools-devel_package() {
-	depends="libinotify-tools>=${version}_${revision}"
-	short_desc+=" - development files"
-	pkg_install() {
-		vmove usr/include
-		vmove "usr/lib/*.a"
-		vmove "usr/lib/*.so"
-	}
-}
+
+# libinotify-tools_package() {
+# 	short_desc+=" - library files"
+# 	pkg_install() {
+# 		vmove "usr/lib/*.so.*"
+# 	}
+# }
+
+# inotify-tools-devel_package() {
+# 	depends="libinotify-tools>=${version}_${revision}"
+# 	short_desc+=" - development files"
+# 	pkg_install() {
+# 		vmove usr/include
+# 		vmove "usr/lib/*.a"
+# 		vmove "usr/lib/*.so"
+# 	}
+# }

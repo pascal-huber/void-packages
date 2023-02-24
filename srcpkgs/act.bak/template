@@ -1,0 +1,28 @@
+# Template file for 'act'
+pkgname=act
+version=0.2.26
+revision=1
+#archs="i686 x86_64"
+#wrksrc=
+#create_wrksrc=yes
+build_style=go
+go_import_path="github.com/nektos/act"
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends=""
+makedepends=""
+depends="docker"
+short_desc="Run your GitHub Actions locally"
+maintainer="Pascal Huber <pascal.huber@resolved.ch>"
+license="MIT"
+homepage="https://github.com/nektos/act"
+distfiles="${homepage}/archive/v${version}.tar.gz"
+checksum=73d75205293bd18e4f529ef1aa47da79fcd7eda2413b790816f4ca63b7aa02ce
+
+
+post_isntall(){
+    vlicense LICENSE
+}

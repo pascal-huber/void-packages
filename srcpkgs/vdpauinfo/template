@@ -1,7 +1,7 @@
 # Template file for 'vdpauinfo'
 pkgname=vdpauinfo
 _glhash=8f047eac351672cc4316724edb6ad2b2
-version=1.4
+version=1.5
 revision=1
 build_style=gnu-configure
 hostmakedepends="pkg-config"

@@ -1,0 +1,13 @@
+diff --git a/bitmapper/packages/core/src/BitmapsGenerator.ts b/bitmapper/packages/core/src/BitmapsGenerator.ts
+index a195b9f..9116a47 100644
+--- a/bitmapper/packages/core/src/BitmapsGenerator.ts
++++ b/bitmapper/packages/core/src/BitmapsGenerator.ts
+@@ -33,7 +33,7 @@ class BitmapsGenerator {
+    */
+   public async getBrowser(): Promise<Browser> {
+     return puppeteer.launch({
+-      ignoreDefaultArgs: ["--no-sandbox"],
++      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+       headless: true,
+     });
+   }

@@ -1,0 +1,19 @@
+# Template file for 'vscode-bin'
+pkgname=vscode-bin
+version=1.68.0
+revision=1
+# build_style=gnu-configure
+hostmakedepends=""
+makedepends=""
+depends="libxkbfile gnupg gtk+3 libsecret nss gcc libnotify glibc lsof shared-mime-info xdg-utils"
+short_desc="vscode"
+maintainer="Pascal Huber <pascal.huber@resolved.ch>"
+license="custom: commercial"
+homepage="https://code.visualstudio.com/"
+distfiles="https://update.code.visualstudio.com/${version}/linux-x64/stable"
+checksum=280844c7e827dbbe770e38822a596f84fc85694bcd348ead01f16ffdbc486bcf
+
+
+do_install(){
+    vbin /usr/bin/code
+}

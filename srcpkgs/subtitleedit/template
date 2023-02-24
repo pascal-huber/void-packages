@@ -1,0 +1,27 @@
+# Template file for 'subtitleedit'
+pkgname=subtitleedit
+version=3.6.11
+revision=1
+hostmakedepends="unzip"
+makedepends=""
+depends="mono"
+short_desc="An advanced subtitle editor and converter"
+maintainer=" <>"
+license="GPL-3.0-or-later"
+homepage="https://www.nikse.dk/SubtitleEdit"
+#changelog=""
+distfiles="https://github.com/SubtitleEdit/subtitleedit/releases/download/${version}/SE${version//./}.zip"
+checksum=fcd489536b673eef26a725bf75ebd739dd025b056c65c16859a9e623ea5b948d
+
+do_extract() {
+    vmkdir "/opt/subtitleedit"
+	unzip -o "${XBPS_SRCDISTDIR}/subtitleedit-$version/SE${version//./}.zip" -d /opt/subtitleedit
+}
+
+do_install() {
+    vcopy * /opt/subtitleedit/
+	vbin "${FILESDIR}/subtitleedit"
+
+	# vinstall "$FILESDIR/subtitleedit.desktop" -Dm755 "$DESTDIR/usr/share/applications/subtitleedit.desktop"
+	# vinstall "$FILESDIR/subtitleedit.png" -Dm755 "$DESTDIR/usr/share/pixmaps/subtitleedit.png"
+}

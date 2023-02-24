@@ -1,0 +1,46 @@
+# Template file for 'bibata-cursor-more'
+pkgname=bibata-cursor-more
+version=1.1.2
+revision=1
+# build_style=gnu-configure
+short_desc="Opensource, compact, and material designed cursor set."
+makedepends="coreutils sudo util-linux shadow libXcursor-devel libpng-devel yarn python3-pip python3-gobject-devel nss atk-devel at-spi2-atk-devel cups-devel libxkbcommon-devel libXcomposite-devel libXdamage-devel libXrandr-devel gtk+3-devel alsa-lib-devel"
+maintainer="Pascal Huber <pascal.huber@resolved.ch>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/ful1e5/Bibata_Cursor"
+distfiles="https://github.com/ful1e5/Bibata_Cursor/archive/refs/tags/v${version}.tar.gz"
+checksum=c0a9b8b09835de7dfc8270de9e4754bc1b96890d4d91b2350fd7ca026f577a62
+
+do_extract(){
+	mkdir -p ${DESTDIR}
+    bsdtar -xvf ${XBPS_SRCDISTDIR}/bibata-cursor-more-${version}/v${version}.tar.gz -C ${wrksrc}
+}
+
+do_build(){
+	export CHOWNPROG=: CHGRPPROG=: # Don't try to chown/chgrp as we build as non-root
+
+    pip3 install --user clickgen
+    cd ${wrksrc}
+    cd Bibata_Cursor-${version}
+
+    export NODE_DEBUG=cluster,net,http,fs,tls,module,timer,stream,child_process
+    mkdir -p svg/modern
+
+    # TODO: use real patch
+    patch -Ntp1 < ${FILESDIR}/no-sandbox.patch || echo "already applied"
+
+    cd bitmapper
+
+    yarn install
+    make all
+    # ls -l
+    # echo "hi"
+    # ls -l ./bitmaps/
+    # false
+}
+
+do_install(){
+    mkdir -p ${DESTDIR}/usr/share/icons/
+    vcopy bitmaps/Bibata-Original-Amber /usr/share/icons
+    # mv ${DESTDIR}/Bibata-* ${DESTDIR}/usr/share/icons/
+}

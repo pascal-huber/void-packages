@@ -1,0 +1,19 @@
+# Template file for 'ktimetracker'
+pkgname=ktimetracker
+version=5.0.1
+revision=1
+build_style=cmake
+configure_args="-DBUILD_TESTING=OFF"
+hostmakedepends="qt5-devel qt5-declarative ecm plasma-framework-devel"
+makedepends="qt5-host-tools extra-cmake-modules kidletime-devel gettext
+kcalendarcore-devel"
+depends="qt5-dbus qt5-gui qt5-widgets qt5-xml kio hicolor-icon-theme
+kconfig kconfigwidgets kcoreaddons kdbusaddons ki18n kjobwidgets
+knotifications kwindowsystem kxmlgui kwidgetsaddons kwindowsystem
+ktextwidgets"
+short_desc="Todo management and time tracker"
+maintainer=" <>"
+license="GPL-2"
+homepage="https://userbase.kde.org/KTimeTracker"
+distfiles="${KDE_SITE}/ktimetracker/${version}/src/ktimetracker-${version}.tar.xz"
+checksum=02e8620164357e594e135e20d8efd3987cc9c31a817c25e5555914e0971be64a

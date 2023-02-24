@@ -1,0 +1,2 @@
+# site="https://gitlab.gnome.org/GNOME/seahorse-nautilus/-/tags"
+# pattern='<a\s+(?:[^>]*?\s+)?>\K[\d.]+(?=</a>)'

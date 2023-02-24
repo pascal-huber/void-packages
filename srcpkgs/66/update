@@ -1,0 +1,6 @@
+# NOTE: the latest version on the website doesn't match the latest version on gitlab
+site="https://git.obarun.org/Obarun/66/-/tags"
+
+# Website (outdated)
+# site="https://web.obarun.org/software/66/"
+# pattern="v\K[\d.]+(?=\)?</a>)"
