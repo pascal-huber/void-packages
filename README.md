@@ -1,37 +1,23 @@
-## The XBPS source packages collection
+## My templates and the XBPS source packages collection
 
-This repository contains the XBPS source packages collection to build binary packages
-for the Void Linux distribution.
+My templates:
 
-The included `xbps-src` script will fetch and compile the sources, and install its
-files into a `fake destdir` to generate XBPS binary packages that can be installed
-or queried through the `xbps-install(1)` and `xbps-query(1)` utilities, respectively.
+| Package       | Source/Credits                                            |
+|---------------|-----------------------------------------------------------|
+| brave         | [void-goodies](https://notabug.org/reback00/void-goodies) |
+| svlog         | [svlog](https://github.com/pascal-huber/svlog)            |
+| gloriousctl   | [gloriousctl](https://github.com/enkore/gloriousctl)      |
+| bibata-cursor | [bibata cursor](https://github.com/ful1e5/Bibata_Cursor)  |
 
-See [Contributing](./CONTRIBUTING.md) for a general overview of how to contribute and the
-[Manual](./Manual.md) for details of how to create source packages.
+### Update Check
 
-### Table of Contents
+An update-check is performed daily. The results can be found
+[here](https://pascal-huber.github.io/void-packages/) (if `updates.txt` is
+empty, no updates were found).
 
-- [Requirements](#requirements)
-- [Quick start](#quick-start)
-- [chroot methods](#chroot-methods)
-- [Install the bootstrap packages](#install-bootstrap)
-- [Configuration](#configuration)
-- [Directory hierarchy](#directory-hierarchy)
-- [Building packages](#building-packages)
-- [Package build options](#build-options)
-- [Sharing and signing your local repositories](#sharing-and-signing)
-- [Rebuilding and overwriting existing local packages](#rebuilding)
-- [Enabling distcc for distributed compilation](#distcc)
-- [Distfiles mirrors](#distfiles-mirrors)
-- [Cross compiling packages for a target architecture](#cross-compiling)
-- [Using xbps-src in a foreign Linux distribution](#foreign)
-- [Remaking the masterdir](#remaking-masterdir)
-- [Keeping your masterdir uptodate](#updating-masterdir)
-- [Building 32bit packages on x86_64](#building-32bit)
-- [Building packages natively for the musl C library](#building-for-musl)
-- [Building void base-system from scratch](#building-base-system)
+### Other unofficial templates
 
+<<<<<<< HEAD
 ### Requirements
 
 - GNU bash
@@ -513,3 +499,7 @@ Once the build has finished, you can specify the path to the local repository to
     # cd void-mklive
     # make
     # ./mklive.sh ... -r /path/to/hostdir/binpkgs
+=======
+ - https://notabug.org/reback00/void-goodies
+ - https://github.com/animeshz/void-xpackages
+>>>>>>> be374450ab8 (add private templates)

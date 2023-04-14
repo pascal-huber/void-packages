@@ -1,0 +1,49 @@
+name: update-check
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    # at 4:39
+    - cron: '39 4 * * *'
+jobs:
+  update-check:
+    runs-on: ubuntu-latest
+    # TODO: check if its better/faster to use a void-image
+    # container:
+    #   image: 'ghcr.io/void-linux/xbps-src-masterdir:v20211105RC01-x86_64-musl'
+    env:
+      XBPS_ALLOW_CHROOT_BREAKOUT: true
+    steps:
+      - name: checkout templates
+        uses: actions/checkout@v3
+        with:
+          path: void-templates
+      - name: install xbps-static
+        run: |
+          wget 'https://alpha.de.repo.voidlinux.org/static/xbps-static-latest.x86_64-musl.tar.xz'
+          mkdir "${HOME}/XBPS/"
+          tar xvf xbps-static-latest.x86_64-musl.tar.xz -C "${HOME}/XBPS/"
+          echo "${HOME}/XBPS/usr/bin/" >> $GITHUB_PATH
+      - name: run update check
+        working-directory: ./void-templates
+        run: |
+          mkdir public
+          while read package; do
+            if [ -x "./srcpkgs/${package}/update-check.sh" ]; then
+              sh "./srcpkgs/${package}/update-check.sh" | tee -a public/updates.txt
+            else
+              ./xbps-src update-check "$package" 2>&1 | tee -a public/updates.txt
+            fi
+          done <private-templates.txt
+      - name: generate index.html
+        working-directory: ./void-templates/public
+        run: |
+          sudo apt-get update
+          sudo apt-get install tree
+          tree -T void-templates -H '.' -L 1 -I index.html --noreport --charset utf-8 -o index.html
+      - name: put info in gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./void-templates/public
+          enable_jekyll: true
