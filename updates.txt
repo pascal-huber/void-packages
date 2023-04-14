@@ -1,0 +1,33 @@
+./xbps-src: line 368: xbps-uhelper: command not found
+./xbps-src: line 372: xbps-uhelper: command not found
+xbps-install is missing in your system, can't continue!
+xbps-query is missing in your system, can't continue!
+xbps-rindex is missing in your system, can't continue!
+xbps-uhelper is missing in your system, can't continue!
+xbps-reconfigure is missing in your system, can't continue!
+xbps-remove is missing in your system, can't continue!
+xbps-create is missing in your system, can't continue!
+xbps-uchroot is missing in your system, can't continue!
+xbps-uunshare is missing in your system, can't continue!
+./xbps-src: line 368: xbps-uhelper: command not found
+./xbps-src: line 372: xbps-uhelper: command not found
+xbps-install is missing in your system, can't continue!
+xbps-query is missing in your system, can't continue!
+xbps-rindex is missing in your system, can't continue!
+xbps-uhelper is missing in your system, can't continue!
+xbps-reconfigure is missing in your system, can't continue!
+xbps-remove is missing in your system, can't continue!
+xbps-create is missing in your system, can't continue!
+xbps-uchroot is missing in your system, can't continue!
+xbps-uunshare is missing in your system, can't continue!
+./xbps-src: line 368: xbps-uhelper: command not found
+./xbps-src: line 372: xbps-uhelper: command not found
+xbps-install is missing in your system, can't continue!
+xbps-query is missing in your system, can't continue!
+xbps-rindex is missing in your system, can't continue!
+xbps-uhelper is missing in your system, can't continue!
+xbps-reconfigure is missing in your system, can't continue!
+xbps-remove is missing in your system, can't continue!
+xbps-create is missing in your system, can't continue!
+xbps-uchroot is missing in your system, can't continue!
+xbps-uunshare is missing in your system, can't continue!
