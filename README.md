@@ -11,9 +11,11 @@ My templates:
 
 ### Update Check
 
-An update-check is performed daily. The results can be found
-[here](https://pascal-huber.github.io/void-packages/) (if `updates.txt` is
-empty, no updates were found).
+An update-check for the packages defined in `update-check.txt` is performed
+daily. If the package contains an executable `update-check.sh`, it will be used
+instead of `xbps-src update-check`. The results can be found
+[here](https://pascal-huber.github.io/void-packages/) (if no updates were found,
+`updates.txt` will be empty).
 
 ### Other unofficial templates
 

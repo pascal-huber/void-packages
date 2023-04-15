@@ -2,3 +2,5 @@ brave
 svlog
 gloriousctl
 bibata-cursor
+hunspell-de_CH
+mu4e

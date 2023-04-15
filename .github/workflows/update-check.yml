@@ -34,7 +34,7 @@ jobs:
             else
               ./xbps-src update-check "$package" 2>&1 | tee -a public/updates.txt
             fi
-          done <private-templates.txt
+          done <update-check.txt
       - name: generate index.html
         working-directory: ./void-templates/public
         run: |
