@@ -1,0 +1,20 @@
+# Template file for 'steam-devices'
+pkgname=steam-devices
+version="20230412.144821"
+revision=1
+short_desc="Udev rules which Steam may or may not need"
+maintainer="Pascal Huber <pascal.huber@resolved.ch>"
+license="MIT"
+homepage="https://github.com/ValveSoftware/steam-devices"
+distfiles="https://github.com/ValveSoftware/steam-devices/tarball/master"
+checksum=75c665604a2d4dbce3a6038267ca7edac7eb5def932a9cd8b4c8cd0935b68924
+
+
+do_extract() {
+	bsdtar xf ${XBPS_SRCDISTDIR}/${pkgname}-${version}/master --strip-components 1
+}
+
+do_install() {
+    vinstall 60-steam-input.rules 644 usr/lib/udev/rules.d/
+    vinstall 60-steam-vr.rules 644 usr/lib/udev/rules.d/
+}
