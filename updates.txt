@@ -1,8 +1,4 @@
-brave-1.51.118 -> brave-2
-brave-1.51.118 -> brave-3
-brave-1.51.118 -> brave-5
-brave-1.51.118 -> brave-07
-brave-1.51.118 -> brave-7
-brave-1.51.118 -> brave-9
-NO VERSION found for hunspell-de_CH
-mu4e-1.10.4 -> mu4e-1.10.5
+fatal: cannot change to '/home/runner/work/void-packages/void-packages/void-templates/srcpkgs/brave': No such file or directory
+stat: cannot statx '/home/runner/work/void-packages/void-packages/void-templates/srcpkgs/brave/template': No such file or directory
+[1m[31m=> ERROR: xbps-src: nonexistent file: /home/runner/work/void-packages/void-packages/void-templates/srcpkgs/brave/template
+[m
