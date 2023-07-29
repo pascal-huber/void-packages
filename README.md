@@ -4,7 +4,6 @@ My templates:
 
 | Package       | Source/Credits                                                  |
 |---------------|-----------------------------------------------------------------|
-| brave         | [void-goodies](https://notabug.org/reback00/void-goodies)       |
 | svlog         | [svlog](https://github.com/pascal-huber/svlog)                  |
 | gloriousctl   | [gloriousctl](https://github.com/enkore/gloriousctl)            |
 | bibata-cursor | [bibata cursor](https://github.com/ful1e5/Bibata_Cursor)        |
