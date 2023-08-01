@@ -1,0 +1,2 @@
+site="https://releases.hashicorp.com/vagrant"
+pattern="vagrant_\K[\d.]+(?=</a>)"
