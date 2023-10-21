@@ -1,21 +1,39 @@
 # Template file for 'bibata-cursor'
 pkgname=bibata-cursor
-version=2.0.3
+version=2.0.4
 revision=1
 short_desc="Opensource, compact, and material designed cursor set."
 maintainer="Pascal Huber <pascal.huber@resolved.ch>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/ful1e5/Bibata_Cursor"
 changelog="https://github.com/ful1e5/Bibata_Cursor/raw/main/CHANGELOG.md"
-distfiles="https://github.com/ful1e5/Bibata_Cursor/releases/download/v${version}/Bibata.tar.gz"
-checksum=1664a1e848707e643362eb772a38f077a4cac6362ca39f5705f59e85128b270c
+_distfiles_prefix="https://github.com/ful1e5/Bibata_Cursor/releases/download/v${version}/"
+_variants=(
+	'Bibata-Modern-Amber'
+	'Bibata-Modern-Classic'
+	'Bibata-Modern-Ice'
+	'Bibata-Original-Amber'
+	'Bibata-Original-Classic'
+	'Bibata-Original-Ice'
+)
+for _variant in "${_variants[@]}"; do
+	distfiles+=" ${_distfiles_prefix}${_variant}.tar.xz"
+done
+checksum="9cf393f4a2f6eae2af8a63d0b4165721125e43deac3b1958c2667276e79ecd0d
+ e41e73e2c2c7601070d0d23a9c41809d0a01660416c4e773e43ddbd7afb95016
+ 3cef5903df191dba02d3340d0f38c37d1287d597311ae43702153d065d4c2442
+ 693c2d06bb8ec76158a08163a97a130ae853f2a4628320a682084537c1eef805
+ 66932b1390fcd4878b8068096bea4663f459a32f183794fb5e93decb687215bc
+ 147146f047c2c2a40f13739a220846238d53c9148a704424de6e351355f1be47"
 
 do_extract(){
 	mkdir -p ${DESTDIR}
-    bsdtar -xvf ${XBPS_SRCDISTDIR}/${pkgname}-${version}/Bibata.tar.gz -C ${DESTDIR}
+	for _variant in "${_variants[@]}"; do
+		bsdtar -xvf ${XBPS_SRCDISTDIR}/${pkgname}-${version}/${_variant}.tar.xz -C ${DESTDIR}
+	done
 }
 
 do_install(){
-    mkdir -p ${DESTDIR}/usr/share/icons/
-    mv ${DESTDIR}/Bibata-* ${DESTDIR}/usr/share/icons/
+	mkdir -p ${DESTDIR}/usr/share/icons/
+	mv ${DESTDIR}/Bibata-* ${DESTDIR}/usr/share/icons/
 }
