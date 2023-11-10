@@ -20,7 +20,7 @@ jobs:
           path: void-templates
       - name: install xbps-static
         run: |
-          wget 'https://alpha.de.repo.voidlinux.org/static/xbps-static-latest.x86_64-musl.tar.xz'
+          wget 'https://repo-fastly.voidlinux.org/static/xbps-static-latest.x86_64-musl.tar.xz'
           mkdir "${HOME}/XBPS/"
           tar xvf xbps-static-latest.x86_64-musl.tar.xz -C "${HOME}/XBPS/"
           echo "${HOME}/XBPS/usr/bin/" >> $GITHUB_PATH
