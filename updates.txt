@@ -1,1 +1,0 @@
-bibata-cursor-2.0.4 -> bibata-cursor-2.0.5
