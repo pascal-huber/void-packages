@@ -1,6 +1,6 @@
 # Template file for 'bibata-cursor'
 pkgname=bibata-cursor
-version=2.0.4
+version=2.0.5
 revision=1
 short_desc="Opensource, compact, and material designed cursor set."
 maintainer="Pascal Huber <pascal.huber@resolved.ch>"
@@ -19,12 +19,12 @@ _variants=(
 for _variant in "${_variants[@]}"; do
 	distfiles+=" ${_distfiles_prefix}${_variant}.tar.xz"
 done
-checksum="9cf393f4a2f6eae2af8a63d0b4165721125e43deac3b1958c2667276e79ecd0d
- e41e73e2c2c7601070d0d23a9c41809d0a01660416c4e773e43ddbd7afb95016
- 3cef5903df191dba02d3340d0f38c37d1287d597311ae43702153d065d4c2442
- 693c2d06bb8ec76158a08163a97a130ae853f2a4628320a682084537c1eef805
- 66932b1390fcd4878b8068096bea4663f459a32f183794fb5e93decb687215bc
- 147146f047c2c2a40f13739a220846238d53c9148a704424de6e351355f1be47"
+checksum="43328fd816be6a1efdba405ebaec2996543184fcfade145a99be812947fe7344
+ 3a6cbc6d637dd126d47c602606e816ad0710f3782edfab644d19124ed59c17b7
+ 3d2a2a4200fd5a0a720e9e7c7a43a3eae01cbcd1ba1444ad6603dcd069a72329
+ 0cf1719b8a020397fea1cb75485a9609eb97bc0f59640f606e39ecd67ce0dd88
+ 860204bf0675f8bf8f7d2d267663ce3038ec393c4245447fae2ce0388e01cb87
+ eee8508a7716ba3e0569ca61cf8201d888681a72c462bfd1eb9312c061e3ca4b"
 
 do_extract(){
 	mkdir -p ${DESTDIR}
