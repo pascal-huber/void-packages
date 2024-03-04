@@ -1,2 +1,3 @@
 bibata-cursor-2.0.5 -> bibata-cursor-2.0.6
 mu4e-1.10.8 -> mu4e-1.12.0
+mu4e-1.10.8 -> mu4e-1.12.1
