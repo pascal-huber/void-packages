@@ -4,7 +4,6 @@ fatal: cannot change to '/home/runner/work/void-packages/void-packages/void-temp
 stat: cannot statx '/home/runner/work/void-packages/void-packages/void-templates/srcpkgs/hunspell-de_CH/template': No such file or directory
 => ERROR: xbps-src: nonexistent file: /home/runner/work/void-packages/void-packages/void-templates/srcpkgs/hunspell-de_CH/template
 mu4e-1.10.8 -> mu4e-1.10.9
-mu4e-1.10.8 -> mu4e-1.12.0
 mu4e-1.10.8 -> mu4e-1.12.1
 mu4e-1.10.8 -> mu4e-1.12.2
 mu4e-1.10.8 -> mu4e-1.12.3
@@ -13,3 +12,4 @@ mu4e-1.10.8 -> mu4e-1.12.5
 mu4e-1.10.8 -> mu4e-1.12.6
 mu4e-1.10.8 -> mu4e-1.12.7
 mu4e-1.10.8 -> mu4e-1.12.8
+mu4e-1.10.8 -> mu4e-1.12.9
